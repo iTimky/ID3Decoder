@@ -12,7 +12,6 @@ def decode_str(string):
     try:
         decoded = value.encode('latin1').decode('cp1251')
         return decoded
-        decoded_values.append(decoded)
     except UnicodeEncodeError:
         return None
 
@@ -26,5 +25,4 @@ for f in get_mp3_files():
                 decoded_values.append(decoded)
         if any(decoded_values):
             audio[tag] = decoded_values
-
     audio.save()
